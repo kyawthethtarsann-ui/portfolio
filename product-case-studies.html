@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Case Studies — Kyaw Thet Htar San</title>
+<meta name="description" content="Two independent product case studies by Kyaw Thet Htar San: rethinking first-time crypto purchases at Revolut, and fixing substitutions at Sainsbury's.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Product Case Studies — Kyaw Thet Htar San">
+<meta property="og:description" content="Two self-directed product case studies applying a Business Analyst background to real product problems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1115; --surface:#161920; --surface-2:#1D212A; --line:#2A2E38;
+    --text:#EDEEF0; --muted:#8B909C; --faint:#5B606C;
+    --shipped:#3ECF8E; --shipped-dim:#1E4A38;
+    --progress:#F2B84B; --progress-dim:#4A3A1A;
+    --blue:#6E9FFF; --blue-dim:#1E2E4A;
+    --radius:10px;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  body{ background:var(--ink); color:var(--text); font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  ::selection{ background:var(--shipped); color:#06120C; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--shipped); outline-offset:3px; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  nav{ position:sticky; top:0; z-index:50; background:rgba(15,17,21,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo{ font-family:var(--mono); font-size:14px; font-weight:500; color:var(--text); text-decoration:none; display:flex; align-items:center; gap:8px; }
+  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--shipped); flex-shrink:0; }
+  .navlinks{ display:flex; align-items:center; gap:24px; }
+  .navlinks a{ font-size:13px; color:var(--muted); text-decoration:none; transition:color .15s ease; }
+  .navlinks a:hover{ color:var(--text); }
+
+  header.hero{ padding:80px 0 56px; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:var(--mono); font-size:12px; color:var(--shipped); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:"//"; color:var(--faint); }
+  h1{ font-family:var(--disp); font-weight:600; font-size:clamp(30px,5.5vw,46px); line-height:1.1; letter-spacing:-0.01em; max-width:720px; }
+  .sub{ margin-top:18px; font-size:16px; color:var(--muted); max-width:600px; }
+
+  .disclaimer{
+    margin-top:28px; display:flex; gap:12px; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--blue);
+    border-radius:8px; padding:14px 16px; max-width:640px;
+  }
+  .disclaimer .tag{ font-family:var(--mono); font-size:10.5px; color:var(--blue); text-transform:uppercase; letter-spacing:0.04em; flex-shrink:0; padding-top:2px; }
+  .disclaimer p{ font-size:13px; color:var(--muted); line-height:1.55; }
+
+  .toc{ margin-top:36px; display:flex; flex-direction:column; gap:10px; }
+  .toc a{
+    display:flex; align-items:center; gap:14px; text-decoration:none;
+    padding:14px 18px; background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .toc a:hover{ border-color:var(--faint); background:var(--surface-2); }
+  .toc .num{ font-family:var(--mono); font-size:12px; color:var(--faint); }
+  .toc .info{ flex:1; }
+  .toc .name{ font-family:var(--disp); font-size:15px; font-weight:600; }
+  .toc .desc{ font-size:12.5px; color:var(--muted); margin-top:2px; }
+  .toc .arrow{ font-family:var(--mono); color:var(--shipped); font-size:14px; }
+
+  .case{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .case-tag{ font-family:var(--mono); font-size:12px; color:var(--faint); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+  .case-tag .pill{ font-size:10.5px; padding:3px 9px; border-radius:100px; background:var(--blue-dim); color:var(--blue); border:1px solid #35507A; }
+  .case-title{ font-family:var(--disp); font-size:clamp(24px,4vw,34px); font-weight:600; max-width:640px; margin-bottom:14px; }
+  .case-summary{ color:var(--muted); font-size:15.5px; max-width:600px; margin-bottom:8px; }
+
+  .block{ margin-top:56px; }
+  .block-tag{ font-family:var(--mono); font-size:11.5px; color:var(--shipped); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .block-tag::before{ content:""; width:16px; height:1px; background:var(--shipped); }
+  .block h3{ font-family:var(--disp); font-size:19px; font-weight:600; margin-bottom:14px; max-width:600px; }
+  .block p{ color:#C7CAD1; font-size:14.5px; max-width:620px; margin-bottom:14px; }
+  .block p:last-child{ margin-bottom:0; }
+  .block p.stat-line{ font-size:13.5px; color:var(--muted); }
+  .block p.stat-line b{ color:var(--text); font-weight:500; font-family:var(--mono); }
+
+  .research-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+  .research-card{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .research-card .k{ font-family:var(--mono); font-size:11px; color:var(--faint); text-transform:uppercase; margin-bottom:8px; }
+  .research-card p{ font-size:13.5px; margin:0; }
+
+  table.rice{ width:100%; border-collapse:collapse; margin-top:8px; font-size:13px; }
+  table.rice th, table.rice td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  table.rice th{ font-family:var(--mono); font-size:11px; color:var(--faint); text-transform:uppercase; font-weight:400; }
+  table.rice td{ color:#C7CAD1; }
+  table.rice tr.chosen td{ color:var(--text); }
+  table.rice tr.chosen td:first-child{ position:relative; padding-left:20px; }
+  table.rice tr.chosen td:first-child::before{ content:"→"; position:absolute; left:0; color:var(--shipped); }
+  table.rice td.score{ font-family:var(--mono); }
+  @media (max-width:640px){ table.rice{ font-size:12px; } table.rice th, table.rice td{ padding:8px 6px; } }
+
+  .flow{ display:flex; gap:16px; overflow-x:auto; padding:8px 2px 16px; }
+  .phone{
+    flex-shrink:0; width:200px; background:var(--surface); border:1px solid var(--line);
+    border-radius:20px; padding:14px; display:flex; flex-direction:column; gap:10px;
+  }
+  .phone .step-label{ font-family:var(--mono); font-size:10px; color:var(--faint); text-transform:uppercase; text-align:center; }
+  .phone-screen{ background:var(--ink); border:1px solid var(--line); border-radius:12px; padding:14px 12px; height:260px; display:flex; flex-direction:column; gap:8px; }
+  .ph-bar{ height:8px; background:var(--surface-2); border-radius:4px; }
+  .ph-bar.short{ width:55%; }
+  .ph-bar.tiny{ height:6px; width:35%; }
+  .ph-card{ background:var(--surface-2); border-radius:8px; padding:10px; margin-top:auto; }
+  .ph-card .ph-num{ font-family:var(--mono); font-size:14px; color:var(--shipped); }
+  .ph-btn{ margin-top:auto; background:var(--shipped); color:#06120C; font-family:var(--mono); font-size:10.5px; text-align:center; padding:9px; border-radius:6px; font-weight:500; }
+  .ph-btn.ghost{ background:transparent; border:1px solid var(--line); color:var(--muted); }
+  .ph-chart{ flex:1; display:flex; align-items:flex-end; gap:3px; }
+  .ph-chart span{ flex:1; background:var(--blue); border-radius:2px 2px 0 0; opacity:0.7; }
+  .ph-pill{ align-self:flex-start; font-family:var(--mono); font-size:9px; padding:2px 7px; border-radius:100px; background:var(--shipped-dim); color:var(--shipped); }
+  .ph-pill.warn{ background:var(--progress-dim); color:var(--progress); }
+  .ph-row{ display:flex; align-items:center; gap:8px; }
+  .ph-avatar{ width:22px; height:22px; border-radius:50%; background:var(--surface-2); flex-shrink:0; }
+
+  .metrics-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:8px; }
+  .metric-box{ background:var(--surface); padding:18px; }
+  .metric-box .lbl{ font-family:var(--mono); font-size:10.5px; color:var(--faint); text-transform:uppercase; margin-bottom:8px; }
+  .metric-box .val{ font-size:13.5px; color:#C7CAD1; line-height:1.5; }
+
+  .why-me{ background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--shipped); border-radius:8px; padding:18px 20px; margin-top:20px; }
+  .why-me .k{ font-family:var(--mono); font-size:11px; color:var(--shipped); text-transform:uppercase; margin-bottom:8px; }
+  .why-me p{ margin:0; font-size:13.5px; color:#C7CAD1; }
+
+  footer{ padding:64px 0 48px; text-align:center; }
+  footer p{ color:var(--muted); font-size:13.5px; margin-bottom:18px; }
+  .btn{ font-family:var(--body); font-size:14px; font-weight:500; padding:12px 20px; border-radius:var(--radius); text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); transition:border-color .15s ease, background .15s ease; }
+  .btn:hover{ border-color:var(--faint); background:var(--surface); }
+
+  @media (max-width:640px){ .case{ padding:64px 0; } header.hero{ padding:56px 0 40px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="dot"></span>KTHS.PORTFOLIO</a>
+    <div class="navlinks">
+      <a href="#revolut">Case 01</a>
+      <a href="#sainsburys">Case 02</a>
+      <a href="index.html">Main site ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Product case studies</div>
+    <h1>Two problems I chose to solve, before anyone asked me to.</h1>
+    <p class="sub">I don't have a Product Manager job title yet. What I have is four years of turning ambiguous problems into requirements, data, and shipped process — and I've pointed that at two products I use and understand well.</p>
+    <div class="disclaimer">
+      <span class="tag">Note</span>
+      <p>These are self-directed practice case studies, not commissioned work for Revolut or Sainsbury's. Product decisions, research, and figures are my own analysis — market and industry statistics are cited from public sources where used. I did this to show how I think, not to claim I shipped these features.</p>
+    </div>
+    <div class="toc">
+      <a href="#revolut">
+        <span class="num">01</span>
+        <span class="info">
+          <div class="name">Crypto confidence — rethinking the first purchase</div>
+          <div class="desc">Revolut · reducing panic-selling among first-time crypto buyers</div>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#sainsburys">
+        <span class="num">02</span>
+        <span class="info">
+          <div class="name">Substitutions people actually want</div>
+          <div class="desc">Sainsbury's Groceries · cutting substitution dissatisfaction</div>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="case" id="revolut">
+  <div class="wrap">
+    <div class="case-tag">Case study 01 <span class="pill">Fintech · Crypto</span></div>
+    <h2 class="case-title">Crypto confidence: rethinking the first purchase</h2>
+    <p class="case-summary">First-time crypto buyers on Revolut often buy during a hype spike, panic when a normal price swing follows, and sell at a loss — then avoid the crypto product entirely. I designed a lightweight intervention to fix the moment before the panic starts.</p>
+
+    <div class="block">
+      <div class="block-tag">Problem</div>
+      <h3>A normal market move feels like a crisis to someone who's never seen one before</h3>
+      <p>Crypto volatility isn't unusual — 2025 alone saw bitcoin swing from above $125,000 to a peak-to-trough drop of over $40,000. Experienced holders read that as Tuesday. Someone who bought their first £50 of crypto three days earlier reads it as evidence they made a mistake.</p>
+      <p>Behavioural data from the 2025–26 cycle shows the pattern clearly: buying activity peaked right near market tops, and selling activity peaked right near the bottoms — the textbook shape of panic-driven, not strategy-driven, decisions. For a first-time buyer with no context for what "normal" looks like, that's almost the default outcome.</p>
+      <p class="stat-line">The cost to Revolut isn't one bad trade — it's a user who associates the entire crypto product with losing money, and never opens that tab again.</p>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Research</div>
+      <h3>Where the evidence came from</h3>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="k">Market behaviour</div>
+          <p>2025–26 crash cycles show buy activity clustering at price tops and sell activity clustering at price bottoms — a documented pattern across multiple market analyses, not a one-off event.</p>
+        </div>
+        <div class="research-card">
+          <div class="k">Review mining</div>
+          <p>Reading through app store and community reviews mentioning Revolut's crypto product surfaces a recurring theme: confusion at the first significant price drop, and a sense of having been misled about risk.</p>
+        </div>
+        <div class="research-card">
+          <div class="k">Comparable products</div>
+          <p>Robinhood and Coinbase both gate first crypto purchases behind risk-disclosure screens — but static disclaimers get skipped, not absorbed. The gap isn't information, it's context at the moment it's needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Prioritisation</div>
+      <h3>Weighing four options with RICE</h3>
+      <table class="rice">
+        <tr><th>Option</th><th>Reach</th><th>Impact</th><th>Confidence</th><th>Effort</th><th>Score</th></tr>
+        <tr><td>In-app volatility education video</td><td>High</td><td>Low</td><td>Med</td><td>Low</td><td class="score">4.2</td></tr>
+        <tr class="chosen"><td>"Risk check" before first crypto purchase</td><td>High</td><td>High</td><td>High</td><td>Low</td><td class="score">9.6</td></tr>
+        <tr><td>Post-dip reassurance notification only</td><td>Med</td><td>Med</td><td>Med</td><td>Low</td><td class="score">5.1</td></tr>
+        <tr><td>Mandatory 24hr cool-off before first sell</td><td>High</td><td>Med</td><td>Low</td><td>High</td><td class="score">2.8</td></tr>
+      </table>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Solution</div>
+      <h3>"Risk check" — a 30-second interstitial, shown once</h3>
+      <p>Before a user's first-ever crypto purchase, they see a short flow: a chart of past volatility for the asset they're buying, a prompt to set their own "this would worry me" threshold, and confirmation that the app will use that threshold to talk to them later — not the price.</p>
+      <p>When the price later moves past that threshold, instead of silence (or nothing at all), the user gets a message that reframes the drop against their own stated expectations rather than a generic push notification.</p>
+      <div class="flow">
+        <div class="phone">
+          <div class="step-label">1 · Before purchase</div>
+          <div class="phone-screen">
+            <div class="ph-bar short"></div>
+            <div class="ph-bar tiny"></div>
+            <div class="ph-chart"><span style="height:30%"></span><span style="height:55%"></span><span style="height:40%"></span><span style="height:70%"></span><span style="height:35%"></span><span style="height:60%"></span></div>
+            <div class="ph-card">
+              <div class="ph-num">± 20%</div>
+              <div class="ph-bar tiny" style="margin-top:6px;"></div>
+            </div>
+            <div class="ph-btn">Set my comfort level</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="step-label">2 · Confirmation</div>
+          <div class="phone-screen">
+            <span class="ph-pill">Risk check set</span>
+            <div class="ph-bar short" style="margin-top:8px;"></div>
+            <div class="ph-bar tiny"></div>
+            <div class="ph-card" style="margin-top:auto;">
+              <div class="ph-bar tiny"></div>
+              <div class="ph-bar tiny short" style="margin-top:6px;"></div>
+            </div>
+            <div class="ph-btn ghost">Buy £50 of BTC</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="step-label">3 · During a dip</div>
+          <div class="phone-screen">
+            <span class="ph-pill warn">Price alert</span>
+            <div class="ph-row" style="margin-top:8px;">
+              <div class="ph-avatar"></div>
+              <div style="flex:1;">
+                <div class="ph-bar short"></div>
+                <div class="ph-bar tiny" style="margin-top:6px;"></div>
+              </div>
+            </div>
+            <div class="ph-card" style="margin-top:auto;">
+              <div class="ph-bar tiny"></div>
+              <div class="ph-bar tiny short" style="margin-top:6px;"></div>
+            </div>
+            <div class="ph-btn ghost">This is within my range</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Success metrics</div>
+      <h3>How I'd know it worked</h3>
+      <div class="metrics-row">
+        <div class="metric-box"><div class="lbl">Primary</div><div class="val">Drop in crypto positions closed within 48 hours of a 15%+ adverse move, among first-time buyers</div></div>
+        <div class="metric-box"><div class="lbl">Secondary</div><div class="val">30-day crypto product retention for cohorts who completed the risk check</div></div>
+        <div class="metric-box"><div class="lbl">Guardrail</div><div class="val">Support tickets tagged "confused about price drop" don't increase</div></div>
+      </div>
+    </div>
+
+    <div class="why-me">
+      <div class="k">Why this is my kind of problem</div>
+      <p>This is a data-and-behaviour problem before it's a design problem — reading a pattern in numbers, then designing the smallest intervention that changes the outcome. That's the same instinct behind every dashboard I've built to explain why a metric moved, just aimed at a product decision instead of a report.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="sainsburys">
+  <div class="wrap">
+    <div class="case-tag">Case study 02 <span class="pill">Retail · Consumer</span></div>
+    <h2 class="case-title">Substitutions people actually want</h2>
+    <p class="case-summary">Nearly a third of Sainsbury's online shoppers receive a substitution they didn't choose. I work the floor where those substitutions get picked, and I know exactly where the process breaks down before the customer ever sees the swap.</p>
+
+    <div class="block">
+      <div class="block-tag">Problem</div>
+      <h3>Pickers guess. Customers get surprised. Nobody wins.</h3>
+      <p>Industry-wide, published UK consumer research shows around 28–32% of Sainsbury's online orders include at least one substitution, and separate academic research into online grocery substitutions found 30–45% of shoppers are dissatisfied with the swap they received.</p>
+      <p>Having worked the operational side of this myself, the reason isn't a lack of care — it's a lack of information at the moment it matters. A picker finds an item out of stock mid-shop, with seconds to decide, no visibility into what that specific customer would actually accept, and no easy way to check.</p>
+      <p class="stat-line">The result: a customer gets a swap that technically fills the gap but breaks trust in the app's judgement — and next time, they're more likely to shop the substitution-free way, in person, somewhere else.</p>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Research</div>
+      <h3>Where the evidence came from</h3>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="k">Frontline observation</div>
+          <p>Direct experience of the picking and substitution process from the retail floor — where the time pressure and information gap actually sit.</p>
+        </div>
+        <div class="research-card">
+          <div class="k">Published consumer data</div>
+          <p>UK-wide surveys and academic studies on grocery substitution consistently show dissatisfaction concentrated in a few root causes: mismatched brand, mismatched flavour, and items the shopper has never bought before.</p>
+        </div>
+        <div class="research-card">
+          <div class="k">Existing safeguard</div>
+          <p>Customers can already decline a substitute at the door — but that's a rejection after the fact, not a preference captured before the problem happens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Prioritisation</div>
+      <h3>Weighing four options with MoSCoW</h3>
+      <table class="rice">
+        <tr><th>Option</th><th>Priority</th><th>Effort</th><th>Notes</th></tr>
+        <tr class="chosen"><td>Standing substitution preferences per item</td><td>Must have</td><td>Med</td><td>Set once, applied automatically at pick</td></tr>
+        <tr><td>Per-order "no substitutes" toggle</td><td>Must have</td><td>Low</td><td>Already exists — kept, not rebuilt</td></tr>
+        <tr><td>Live picker photo confirmation</td><td>Should have</td><td>High</td><td>Real-time chat needs picker capacity</td></tr>
+        <tr><td>AI-suggested substitute from purchase history</td><td>Could have</td><td>High</td><td>Needs the preference data below to work well first</td></tr>
+      </table>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Solution</div>
+      <h3>Substitution preferences, set once, used automatically</h3>
+      <p>At checkout — or any time in account settings — a customer sets standing rules per category or per item: "same brand only", "any flavour is fine", "never dairy alternatives", "always ask first". Those rules travel with the order into the picker's handheld device, so the decision is already made before the shelf is empty.</p>
+      <p>For anything the rules don't cover, the picker still chooses — but the app now knows enough to flag low-confidence swaps for a quick customer confirmation via notification, instead of guessing blind.</p>
+      <div class="flow">
+        <div class="phone">
+          <div class="step-label">1 · Set preferences</div>
+          <div class="phone-screen">
+            <div class="ph-bar short"></div>
+            <div class="ph-row"><div class="ph-bar tiny" style="width:60%;"></div><span class="ph-pill">Same brand</span></div>
+            <div class="ph-row"><div class="ph-bar tiny" style="width:45%;"></div><span class="ph-pill">Any flavour</span></div>
+            <div class="ph-row"><div class="ph-bar tiny" style="width:70%;"></div><span class="ph-pill warn">Ask first</span></div>
+            <div class="ph-btn" style="margin-top:auto;">Save preferences</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="step-label">2 · Picker view</div>
+          <div class="phone-screen">
+            <span class="ph-pill">Out of stock</span>
+            <div class="ph-bar short" style="margin-top:8px;"></div>
+            <div class="ph-card" style="margin-top:auto;">
+              <div class="ph-bar tiny"></div>
+              <div class="ph-bar tiny short" style="margin-top:6px;"></div>
+            </div>
+            <div class="ph-btn ghost">Matches preference — confirm swap</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="step-label">3 · Customer notified</div>
+          <div class="phone-screen">
+            <div class="ph-row">
+              <div class="ph-avatar"></div>
+              <div style="flex:1;">
+                <div class="ph-bar short"></div>
+                <div class="ph-bar tiny" style="margin-top:6px;"></div>
+              </div>
+            </div>
+            <div class="ph-card" style="margin-top:auto;">
+              <div class="ph-bar tiny"></div>
+            </div>
+            <div class="ph-btn">Looks good</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-tag">Success metrics</div>
+      <h3>How I'd know it worked</h3>
+      <div class="metrics-row">
+        <div class="metric-box"><div class="lbl">Primary</div><div class="val">Substitution acceptance rate at the door, versus current baseline</div></div>
+        <div class="metric-box"><div class="lbl">Secondary</div><div class="val">Substitution-related refund and complaint rate</div></div>
+        <div class="metric-box"><div class="lbl">Guardrail</div><div class="val">Picker time-per-order doesn't increase</div></div>
+      </div>
+    </div>
+
+    <div class="why-me">
+      <div class="k">Why this is my kind of problem</div>
+      <p>I've stood on the operational side of exactly this gap. This case study is where my actual day job and product thinking overlap most directly — I'm not guessing at the constraints, I've worked inside them.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Two case studies, one instinct: find where the process breaks, and fix the smallest thing that changes the outcome.</p>
+    <a href="index.html" class="btn">Back to main portfolio ↗</a>
+  </div>
+</footer>
+
+</body>
+</html>
