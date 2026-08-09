@@ -16,15 +16,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F1115;
-    --surface:#161920;
-    --surface-2:#1D212A;
-    --line:#2A2E38;
-    --text:#EDEEF0;
+    --ink:#0B0C10;
+    --surface:#17181D;
+    --surface-2:#1E2027;
+    --line:#2B2D35;
+    --text:#F3F1EC;
     --muted:#8B909C;
     --faint:#5B606C;
-    --shipped:#3ECF8E;
-    --shipped-dim:#1E4A38;
+    --shipped:#FF5A3C;
+    --shipped-dim:#40190F;
     --progress:#F2B84B;
     --progress-dim:#4A3A1A;
     --paper:#F4F6F2;
@@ -47,7 +47,7 @@
   }
 
   a{color:inherit;}
-  ::selection{ background:var(--shipped); color:#06120C; }
+  ::selection{ background:var(--shipped); color:#1A0800; }
 
   a:focus-visible, button:focus-visible{
     outline:2px solid var(--shipped);
@@ -81,7 +81,7 @@
   .navlinks a:hover{ color:var(--text); }
   .navlinks .badge{
     font-family:var(--mono); font-size:11px; color:var(--shipped);
-    background:var(--shipped-dim); border:1px solid #2E7A5A;
+    background:var(--shipped-dim); border:1px solid #7A3420;
     padding:4px 9px; border-radius:100px;
   }
   .navmobile{ display:none; }
@@ -95,7 +95,7 @@
   header.hero::before{
     content:""; position:absolute; top:-40%; right:-10%;
     width:520px; height:520px; border-radius:50%;
-    background:radial-gradient(circle, rgba(62,207,142,0.10), transparent 70%);
+    background:radial-gradient(circle, rgba(255,90,60,0.10), transparent 70%);
     pointer-events:none;
   }
   .eyebrow{
@@ -109,7 +109,10 @@
     font-size:clamp(34px, 6vw, 56px); line-height:1.08;
     letter-spacing:-0.01em; max-width:760px;
   }
-  h1 .accent{ color:var(--shipped); }
+  h1 .accent{
+    background:linear-gradient(90deg, var(--shipped), var(--progress));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .sub{
     margin-top:22px; font-size:17px; color:var(--muted);
     max-width:560px; line-height:1.65;
@@ -120,13 +123,13 @@
   }
   .pulse{
     width:8px; height:8px; border-radius:50%; background:var(--shipped);
-    box-shadow:0 0 0 0 rgba(62,207,142,0.5);
+    box-shadow:0 0 0 0 rgba(255,90,60,0.5);
     animation:pulse 2s infinite;
   }
   @keyframes pulse{
-    0%{ box-shadow:0 0 0 0 rgba(62,207,142,0.45); }
-    70%{ box-shadow:0 0 0 8px rgba(62,207,142,0); }
-    100%{ box-shadow:0 0 0 0 rgba(62,207,142,0); }
+    0%{ box-shadow:0 0 0 0 rgba(255,90,60,0.45); }
+    70%{ box-shadow:0 0 0 8px rgba(255,90,60,0); }
+    100%{ box-shadow:0 0 0 0 rgba(255,90,60,0); }
   }
   .cta-row{ margin-top:36px; display:flex; flex-wrap:wrap; gap:12px; }
   .btn{
@@ -137,8 +140,8 @@
     border:1px solid transparent; cursor:pointer;
   }
   .btn:active{ transform:scale(0.98); }
-  .btn-primary{ background:var(--shipped); color:#06120C; }
-  .btn-primary:hover{ background:#4FE0A0; }
+  .btn-primary{ background:var(--shipped); color:#1A0800; }
+  .btn-primary:hover{ background:#FF8560; }
   .btn-ghost{ border-color:var(--line); color:var(--text); }
   .btn-ghost:hover{ border-color:var(--faint); background:var(--surface); }
 
@@ -166,7 +169,7 @@
   .edu-detail{
     display:inline-flex; align-items:center; gap:6px;
     font-family:var(--mono); font-size:11.5px; color:var(--shipped);
-    background:var(--shipped-dim); border:1px solid #2E7A5A; padding:4px 10px; border-radius:100px;
+    background:var(--shipped-dim); border:1px solid #7A3420; padding:4px 10px; border-radius:100px;
   }
   @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
 
@@ -203,7 +206,7 @@
     font-family:var(--mono); font-size:10.5px; padding:3px 9px; border-radius:100px;
     text-transform:uppercase; letter-spacing:0.04em;
   }
-  .status-pill.shipped{ background:var(--shipped-dim); color:var(--shipped); border:1px solid #2E7A5A; }
+  .status-pill.shipped{ background:var(--shipped-dim); color:var(--shipped); border:1px solid #7A3420; }
   .status-pill.progress{ background:var(--progress-dim); color:var(--progress); border:1px solid #6B531F; }
   .date{ font-family:var(--mono); font-size:12px; color:var(--faint); margin-left:auto; }
   .entry-role{ font-family:var(--disp); font-size:20px; font-weight:600; margin-bottom:2px; }
@@ -328,7 +331,7 @@
     <p class="sub">Kyaw Thet Htar San. Four years across retail, logistics, and SME advisory in London — reading data, mapping process, and getting cross-functional teams to actually agree on what "done" looks like.</p>
     <div class="status-line">
       <span class="pulse"></span>
-      <span>Currently shipping @ Sainsbury's — open to Associate Product Manager roles in London</span>
+      <span>Currently @ Sainsbury's (Customer &amp; Trading Assistant) — open to Associate Product Manager roles in London</span>
     </div>
     <div class="cta-row">
       <a href="#changelog" class="btn btn-primary">View the changelog ↓</a>
@@ -366,7 +369,7 @@
     </div>
     <div class="about-grid">
       <div>
-        <p>I'm a Business Analyst and Project Coordinator based in London, currently at Sainsbury's. Over four years I've worked across retail, logistics, and SME advisory — the common thread is taking a business problem that's vague on day one and turning it into something measurable, documented, and shipped.</p>
+        <p>I'm a Business Analyst and Project Coordinator by background, currently working as a Customer and Trading Assistant at Sainsbury's while I build toward Product Management. Over four years I've worked across retail, logistics, and SME advisory — the common thread is taking a business problem that's vague on day one and turning it into something measurable, documented, and shipped.</p>
         <p>That's meant building KPI dashboards stakeholders actually use, cleaning datasets in the tens of thousands of records to find what mattered, redesigning an approval process to cut turnaround by a fifth, and holding transaction accuracy above 99.8% in a high-volume environment.</p>
         <p>I'm now working toward Product Management — specifically Associate Product Manager roles in London, ideally in fintech, crypto, or consumer tech. The analyst instinct doesn't go away; it's the same skill aimed one level up, at deciding what gets built and why.</p>
       </div>
@@ -394,7 +397,7 @@
         <span class="status-pill shipped">In production</span>
         <span class="date">2023 — Present</span>
       </div>
-      <div class="entry-role">Customer &amp; Trading Assistant</div>
+      <div class="entry-role">Customer and Trading Assistant</div>
       <div class="entry-org">Sainsbury's <span>· London</span></div>
       <p class="entry-context">High-volume retail environment where accuracy and consistency compound daily. Split between operational delivery and process/reporting work.</p>
       <ul class="change-list">
@@ -581,7 +584,7 @@
         <h3>Analyst case studies, live on Notion</h3>
         <p>Detailed breakdowns of specific BA projects — the problem, the process, and what shipped.</p>
       </div>
-      <a href="#" class="btn btn-ghost" id="notion-link">Read on Notion ↗</a>
+      <a href="https://app.notion.com/p/Kyaw-Thet-Htar-San-Portfolio-3b76b72afc6f81bb9cefc6ebcf1548a6#90a852086cfb444980ca6848e5d8e70a" target="_blank" rel="noopener" class="btn btn-ghost" id="notion-link">Read on Notion ↗</a>
     </div>
   </div>
 </section>
